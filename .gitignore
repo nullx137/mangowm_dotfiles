@@ -1,0 +1,16 @@
+# Backup files
+*.backup.*
+*.bak
+*.old
+
+# User-specific state
+.config/mango/state*
+.config/waybar/cache/
+
+# SDDM build artifacts (if any)
+*.pkg.tar.zst
+pkg/
+
+# Personal scripts not meant for the repo
+local/
+secrets/

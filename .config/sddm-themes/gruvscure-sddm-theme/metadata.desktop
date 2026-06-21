@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=Gruvscure
+Description=Flat Gruvbox-dark SDDM theme based on Obscure
+Website=https://github.com/SUDOER1337/gruvscure-sddm-theme
+Author=SUDOER1337
+Copyright=(c) 2025, SUDOER1337
+License=MIT
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=gruvscure-sddm-theme
+QtVersion=6
