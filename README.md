@@ -114,7 +114,6 @@ cd ~/mangowm_dotfiles
 ## Примечания
 
 - Путь к обоям в конфигах заменяется автоматически на `~/Pictures/wallpapers/wallpaper.jpg` при запуске `install.sh`.
-- Скрипт голосового помощника (`/home/null/voice_log/voice_input.py`) и его бинд — личные, при необходимости удалите или замените строку в `~/.config/mango/config.conf`.
 - Для корректной работы `hyprlock` при suspend включён сервис `hyprlock-suspend.service`.
 
 ## Лицензия
