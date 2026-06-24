@@ -91,10 +91,11 @@ install_packages() {
         echo "!!! IMPORTANT !!!"
         echo "The following packages are likely in AUR and must be installed manually:"
         echo "  - mangowm"
+        echo "  - wlogout (power menu)"
         echo "  - libinput-gestures (optional, for touchpad gestures)"
         echo ""
         echo "Install them with your AUR helper, e.g.:"
-        echo "  yay -S mangowm libinput-gestures"
+        echo "  yay -S mangowm wlogout libinput-gestures"
         echo ""
 
     elif [ "$DISTRO" = "void" ]; then
@@ -142,6 +143,7 @@ backup_config "$CONFIG_DIR/hypr"
 backup_config "$CONFIG_DIR/environment.d"
 backup_config "$CONFIG_DIR/systemd"
 backup_config "$CONFIG_DIR/sddm-themes"
+backup_config "$CONFIG_DIR/wlogout"
 backup_config "$CONFIG_DIR/vis"
 backup_config "$CONFIG_DIR/fastfetch"
 
@@ -154,6 +156,17 @@ cp "$REPO_DIR/wallpapers/wallpaper.jpg" "$WALLPAPER_PATH"
 echo "Copying configs..."
 mkdir -p "$CONFIG_DIR"
 cp -r "$REPO_DIR/.config/"* "$CONFIG_DIR/"
+
+# Copy wlogout config explicitly (in case .config/wlogout was created empty)
+mkdir -p "$CONFIG_DIR/wlogout"
+cp -f "$REPO_DIR/.config/wlogout/layout" "$CONFIG_DIR/wlogout/layout"
+cp -f "$REPO_DIR/.config/wlogout/style.css" "$CONFIG_DIR/wlogout/style.css"
+
+# Copy suspend lock script
+echo "Installing suspend lock script..."
+mkdir -p "$HOME_DIR/.local/bin"
+cp -f "$REPO_DIR/scripts/suspend-lock.sh" "$HOME_DIR/.local/bin/suspend-lock.sh"
+chmod +x "$HOME_DIR/.local/bin/suspend-lock.sh"
 
 # Replace hardcoded /home/null paths with current home
 echo "Updating paths in configs..."
@@ -196,6 +209,10 @@ fi
 echo "Enabling hyprlock suspend service..."
 systemctl --user daemon-reload
 systemctl --user enable hyprlock-suspend.service || true
+
+# Enable lid lock service
+echo "Enabling lid lock service..."
+systemctl --user enable lid-lock.service || true
 
 # Enable SDDM
 if [ "$DISTRO" = "arch" ]; then

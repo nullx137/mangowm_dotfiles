@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "󰌾",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-session $XDG_SESSION_ID",
+    "text" : "󰍃",
+    "keybind" : "e"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "󰜉",
+    "keybind" : "r"
+}
+{
+    "label" : "suspend",
+    "action" : "/home/null/.local/bin/suspend-lock.sh",
+    "text" : "󰒲",
+    "keybind" : "s"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "󰐥",
+    "keybind" : "p"
+}

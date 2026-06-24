@@ -1,0 +1,11 @@
+[Unit]
+Description=Lock screen when laptop lid closes
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/lid-lock.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

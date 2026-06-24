@@ -1,12 +1,17 @@
 [Unit]
 Description=Lock screen with hyprlock before sleep
-Before=sleep.target
+Before=suspend.target
+Before=hibernate.target
+Before=hybrid-sleep.target
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/hyprlock --grace 0
+ExecStartPost=/usr/bin/sleep 1
 Restart=on-failure
 RestartSec=1
 
 [Install]
-WantedBy=sleep.target
+WantedBy=suspend.target
+WantedBy=hibernate.target
+WantedBy=hybrid-sleep.target
