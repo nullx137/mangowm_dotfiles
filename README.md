@@ -63,7 +63,7 @@ libinput-gestures  # опционально, для жестов тачпада
 ## Установка
 
 ```bash
-git clone https://github.com/ВАШ_НИК/mangowm_dotfiles.git ~/mangowm_dotfiles
+git clone https://github.com/nullx137/mangowm_dotfiles.git ~/mangowm_dotfiles
 cd ~/mangowm_dotfiles
 ./install.sh
 ```
